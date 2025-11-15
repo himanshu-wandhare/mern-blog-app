@@ -61,8 +61,8 @@ A full-stack blog application built with MongoDB, Express.js, React, and Node.js
 
 ## 🚀 Live Demo
 
--   **Frontend**: [https://blog-frontend.com](https://blog-frontend.com)
--   **Backend API**: [https://blog-api.com](https://blog-api.com)
+-   **Frontend**: [https://mern-blog-app-pearl-nine.vercel.app/](https://mern-blog-app-pearl-nine.vercel.app/)
+-   **Backend API**: [https://mern-blog-api-wiik.onrender.com](https://mern-blog-api-wiik.onrender.com)
 
 ### Demo Credentials
 

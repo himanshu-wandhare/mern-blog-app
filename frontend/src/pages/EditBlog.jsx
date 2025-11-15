@@ -133,7 +133,7 @@ export default function EditBlog() {
                         console.error("Error initializing editor:", error);
                         setInitialLoading(false);
                     }
-                }, 100);
+                }, 500);
             } else {
                 setInitialLoading(false);
             }

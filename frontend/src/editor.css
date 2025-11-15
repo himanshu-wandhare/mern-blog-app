@@ -1,0 +1,150 @@
+.ce-block__content,
+.ce-toolbar__content {
+    max-width: 100%;
+}
+
+.codex-editor__redactor {
+    padding-bottom: 0 !important;
+}
+
+/* Blog Content Styling */
+.prose h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.prose h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+}
+
+.prose h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.prose p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    color: #374151;
+}
+
+.prose ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.prose ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.prose li {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.prose ul li {
+    padding-left: 0.5rem;
+}
+
+.prose ol li {
+    padding-left: 0.5rem;
+}
+
+.prose blockquote {
+    border-left: 4px solid #6366f1;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.prose blockquote p {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+.prose blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-style: normal;
+}
+
+.prose blockquote cite::before {
+    content: "— ";
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ul,
+.prose ul ol,
+.prose ol ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Strong and emphasis */
+.prose strong {
+    font-weight: 700;
+    color: #111827;
+}
+
+.prose em {
+    font-style: italic;
+}
+
+/* Links in content */
+.prose a {
+    color: #6366f1;
+    text-decoration: underline;
+}
+
+.prose a:hover {
+    color: #4f46e5;
+}
+
+/* Code blocks (if you add code support later) */
+.prose code {
+    background-color: #f3f4f6;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-family: "Courier New", monospace;
+}
+
+.prose pre {
+    background-color: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.prose pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}

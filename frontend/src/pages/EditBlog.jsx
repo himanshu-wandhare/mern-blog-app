@@ -8,7 +8,7 @@ import Paragraph from "@editorjs/paragraph";
 import Quote from "@editorjs/quote";
 import toast from "react-hot-toast";
 
-export default function EditBlog() {
+export default function EditBlogNew() {
     const [title, setTitle] = useState("");
     const [visibility, setVisibility] = useState("public");
     const [featuredImage, setFeaturedImage] = useState(null);
@@ -16,8 +16,12 @@ export default function EditBlog() {
     const [currentImage, setCurrentImage] = useState("");
     const [loading, setLoading] = useState(false);
     const [initialLoading, setInitialLoading] = useState(true);
+
+    const [editorBlocks, setEditorBlocks] = useState(null);
+
     const editorRef = useRef(null);
     const editorInitialized = useRef(false);
+
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -91,58 +95,55 @@ export default function EditBlog() {
                 }
             });
 
-            // Initialize Editor.js with existing content
-            if (!editorInitialized.current) {
-                // Small delay to ensure DOM is ready
-                setTimeout(() => {
-                    try {
-                        editorRef.current = new EditorJS({
-                            holder: "editorjs",
-                            tools: {
-                                header: {
-                                    class: Header,
-                                    config: {
-                                        levels: [2, 3, 4],
-                                        defaultLevel: 2,
-                                    },
-                                },
-                                list: {
-                                    class: List,
-                                    inlineToolbar: true,
-                                },
-                                paragraph: {
-                                    class: Paragraph,
-                                    inlineToolbar: true,
-                                },
-                                quote: {
-                                    class: Quote,
-                                    inlineToolbar: true,
-                                },
-                            },
-                            data: {
-                                blocks: blocks,
-                            },
-                            placeholder:
-                                "Start writing your blog content here...",
-                            onReady: () => {
-                                editorInitialized.current = true;
-                            },
-                        });
-                        setInitialLoading(false);
-                    } catch (error) {
-                        console.error("Error initializing editor:", error);
-                        setInitialLoading(false);
-                    }
-                }, 500);
-            } else {
-                setInitialLoading(false);
-            }
+            setEditorBlocks(blocks);
+            setInitialLoading(false);
         } catch (error) {
             toast.error("Failed to fetch blog");
             console.error(error);
             navigate("/my-blogs");
         }
     };
+    useEffect(() => {
+        if (!editorBlocks) return;
+
+        const holder = document.getElementById("editorjs");
+        if (!holder) return; // DOM not ready yet
+
+        if (editorInitialized.current) return;
+
+        const editor = new EditorJS({
+            holder: "editorjs",
+            tools: {
+                header: {
+                    class: Header,
+                    config: {
+                        levels: [2, 3, 4],
+                        defaultLevel: 2,
+                    },
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: true,
+                },
+                paragraph: {
+                    class: Paragraph,
+                    inlineToolbar: true,
+                },
+                quote: {
+                    class: Quote,
+                    inlineToolbar: true,
+                },
+            },
+            data: {
+                blocks: editorBlocks,
+            },
+            placeholder: "Start writing your blog content here...",
+            onReady: () => {
+                editorInitialized.current = true;
+            },
+        });
+        editorRef.current = editor;
+    }, [editorBlocks]);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -164,7 +165,7 @@ export default function EditBlog() {
             return;
         }
 
-        if (!editorInitialized.current || !editorRef.current) {
+        if (!editorRef.current) {
             toast.error("Editor is still loading, please wait...");
             return;
         }

@@ -16,7 +16,7 @@ export default function Navbar() {
     return (
         <nav className="bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
+                <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
                         <Link
                             to="/"
@@ -26,10 +26,10 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-2 sm:space-x-4">
                         <Link
                             to="/"
-                            className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                            className="text-gray-700 hover:text-indigo-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium"
                         >
                             Home
                         </Link>
@@ -38,26 +38,28 @@ export default function Navbar() {
                             <>
                                 <Link
                                     to="/my-blogs"
-                                    className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                                    className="text-gray-700 hover:text-indigo-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     My Blogs
                                 </Link>
                                 <Link
                                     to="/create"
-                                    className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700"
+                                    className="bg-indigo-600 text-white px-3 sm:px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 whitespace-nowrap"
                                 >
-                                    Create Post
+                                    Create
                                 </Link>
                                 <button
                                     onClick={handleLogout}
-                                    className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                                    className="text-gray-700 hover:text-indigo-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     Logout
                                 </button>
-                                <div className="text-sm text-gray-600">
-                                    Welcome,{" "}
-                                    <span className="font-semibold">
-                                        {user.name}
+                                <div className="hidden md:flex items-center text-sm text-gray-600 pl-2 border-l border-gray-300">
+                                    <span className="" title={user.name}>
+                                        Hi,{" "}
+                                        <span className="font-semibold">
+                                            {user.name}
+                                        </span>
                                     </span>
                                 </div>
                             </>
@@ -65,13 +67,13 @@ export default function Navbar() {
                             <>
                                 <Link
                                     to="/login"
-                                    className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium"
+                                    className="text-gray-700 hover:text-indigo-600 px-2 sm:px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     to="/register"
-                                    className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700"
+                                    className="bg-indigo-600 text-white px-3 sm:px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 whitespace-nowrap"
                                 >
                                     Register
                                 </Link>

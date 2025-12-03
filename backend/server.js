@@ -32,6 +32,8 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.get("/", (req, res) => res.redirect(process.env.FRONTEND_URL));
+
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/blogs", require("./routes/blogs"));
 
